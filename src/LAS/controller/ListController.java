@@ -26,9 +26,30 @@ public void start()
 
 private void showTheList()
 {
-	for (int index = 0; index < List < myKahoots.size(); index += 1)
+	String currentCreator = "";
+	for (int index = 0; index < myKahoots.size(); index += 1)
 	{
-		popup.displayText(myKahoots.get(index));
+		currentCreator = myKahoots.get(index).getCreator();
+		
+		Kahoot currentKahoot = myKahoots.get(index);
+		String creator = currentKahoot.getCreator();
+		
+		
+		popup.displayText(myKahoots.get(index).toString());
+		
+		if (currentCreator.equals("nobody"))
+		{
+			for (int loop = 0; loop < 5; loop += 1)
+			{
+				popup.displayText("wow nobody does a lot");
+			}
+			
+		}
+		
+		for (int currentLetterIndex = 0; currentLetterIndex < creator.length(); currentLetterIndex +=1)
+		{
+			popup.displayText(currentCreator.substring(currentLetterIndex, currentLetterIndex + 1));
+		}
 	}
 }
 
